@@ -53,17 +53,29 @@ void set_mode_gpu() { Caffe::set_mode(Caffe::GPU); }
 
 void InitLog() {
   ::google::InitGoogleLogging("");
+#if !defined(_MSC_VER)//koujinqiao 20180911
   ::google::InstallFailureSignalHandler();
+#endif
 }
 void InitLogLevel(int level) {
   FLAGS_minloglevel = level;
   InitLog();
 }
+
+#if defined(_MSC_VER)//koujinqiao 20180911
+void InitLogLevelPipe(int level, bool stderr_1) {
+	FLAGS_minloglevel = level;
+	FLAGS_logtostderr = stderr_1;
+	InitLog();
+}
+#else
 void InitLogLevelPipe(int level, bool stderr) {
   FLAGS_minloglevel = level;
   FLAGS_logtostderr = stderr;
   InitLog();
 }
+#endif
+
 void Log(const string& s) {
   LOG(INFO) << s;
 }

@@ -160,6 +160,7 @@ caffe::SolverAction::Enum GetRequestedAction(
     return caffe::SolverAction::NONE;
   }
   LOG(FATAL) << "Invalid signal effect \""<< flag_value << "\" was specified";
+  return caffe::SolverAction::NONE;//需要返回值，koujinqiao20180914
 }
 
 // Train / Finetune a model.
