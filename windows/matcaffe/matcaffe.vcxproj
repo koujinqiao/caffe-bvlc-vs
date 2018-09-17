@@ -103,7 +103,6 @@
   <PropertyGroup>
     <OriginalBuildTargets>$(BuildDependsOn)</OriginalBuildTargets>
     <BuildDependsOn>OriginalBuild;SkipBuild</BuildDependsOn>
-    <NuGetPackageImportStamp>4abe25ae</NuGetPackageImportStamp>
   </PropertyGroup>
   <Target Name="OriginalBuild" Condition="'$(MatlabSupport)'=='true'" DependsOnTargets="$(OriginalBuildTargets)" />
   <Target Name="SkipBuild" Condition="'$(MatlabSupport)'!='true'">

@@ -100,7 +100,6 @@
   <PropertyGroup>
     <OriginalBuildTargets>$(BuildDependsOn)</OriginalBuildTargets>
     <BuildDependsOn>OriginalBuild;SkipBuild</BuildDependsOn>
-    <NuGetPackageImportStamp>f5e644c0</NuGetPackageImportStamp>
   </PropertyGroup>
   <Target Name="OriginalBuild" Condition="'$(PythonSupport)'=='true'" DependsOnTargets="$(OriginalBuildTargets)" />
   <Target Name="SkipBuild" Condition="'$(PythonSupport)'!='true'">
